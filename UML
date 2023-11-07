@@ -1,0 +1,20 @@
++-------------------------+      +----------------+    +------------------+
+|    CustomerDataAdapter  |      | LegacySystem   |    | CustomerData_USB |
+|-------------------------|      |----------------|    |------------------|
+| - legacySystem          |      |                |    |                  |
++-------------------------+      |                |    |                  |
+| + CustomerDataAdapter(  |      | + printCustomer|    | + printCustomer  |
+|    legacy: CustomerData_USB) |(customerId: int)  | |(customerId: int) |
+| + printCustomer(customerId: int): void  |    | |                  |
+| + getCustomer_HTTPS(customerId: int): void |    | | + getCustomer_USB |
++-------------------------+      | + getCustomer_USB|    | (customerId: int) |
+                                +----------------+    +------------------+
+            |
+            |
+            v
++--------------------------+
+|  CustomerData_HTTPS      |
+|--------------------------|
+| + getCustomer_HTTPS(      |
+|    customerId: int): void |
++--------------------------+
